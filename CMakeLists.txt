@@ -4,10 +4,6 @@ project(MyProject)
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 
-# Locate GTest
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-
 # Include Header Files
 include_directories(include)
 
