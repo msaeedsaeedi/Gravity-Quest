@@ -26,6 +26,20 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/dist
 )
 
+# Copy Assets folder
+add_custom_command(
+    OUTPUT ${CMAKE_BINARY_DIR}/bin/dist/assets
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/bin/dist/assets
+    DEPENDS ${CMAKE_SOURCE_DIR}/assets
+    COMMENT "Copying assets folder"
+)
+add_custom_target(copy_assets ALL
+    DEPENDS ${CMAKE_BINARY_DIR}/bin/dist/assets
+)
+add_dependencies(${PROJECT_NAME} copy_assets)
+
+
 # Add tests
 enable_testing()
 add_subdirectory(test)
