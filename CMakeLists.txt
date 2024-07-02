@@ -27,18 +27,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 # Copy Assets folder
-add_custom_command(
-    OUTPUT ${CMAKE_BINARY_DIR}/bin/dist/assets
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/bin/dist/assets
-    DEPENDS ${CMAKE_SOURCE_DIR}/assets
-    COMMENT "Copying assets folder"
-)
-add_custom_target(copy_assets ALL
-    DEPENDS ${CMAKE_BINARY_DIR}/bin/dist/assets
+add_custom_target(copy_assets
+	COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/assets/
+        ${CMAKE_BINARY_DIR}/bin/dist/assets
+    COMMENT "Copying data"
 )
 add_dependencies(${PROJECT_NAME} copy_assets)
-
 
 # Add tests
 enable_testing()
