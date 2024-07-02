@@ -11,9 +11,7 @@ include_directories(include)
 add_subdirectory(H2DE)
 
 # Source Files
-set(SOURCE
-    src/main.cpp
-)
+file(GLOB_RECURSE SOURCE "src/*.cpp")
 
 # Add your source files
 add_executable(${PROJECT_NAME} ${SOURCE})
