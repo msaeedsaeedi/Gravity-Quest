@@ -1,3 +1,4 @@
 [submodule "H2DE"]
 	path = H2DE
-	url = https://github.com/msaeedsaeedi/H2DE.git
+	url = https://github.com/msaeedsaeedi/H2DE
+	branch = main
