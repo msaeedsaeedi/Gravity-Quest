@@ -6,9 +6,6 @@ void GameScene::init() {
     std::cout << "GameScene::init" << std::endl;
 }
 
-void GameScene::update(const float delta) {
+void GameScene::update() {
     std::cout << "GameScene::update" << std::endl;
-}
-
-void GameScene::render(const RenderEngine& render_engine) {
 }

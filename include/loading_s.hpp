@@ -1,14 +1,13 @@
 #pragma once
 
-#include <H2DE/scene.hpp>
+#include <H2DE/Scene/Scene.hpp>
 #include <iostream>
 
 class LoadingScene : public H2DE::Scene
 {
     public:
         void init() override;
-        void update(const float delta) override;
-        void render(const RenderEngine& render_engine) override;
+        void update() override;
 
     private:
         float m_timer = 0.0f;
